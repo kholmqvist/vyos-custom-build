@@ -18,7 +18,7 @@ if [ -f ".env" ]; then
 fi
 
 # 1. Copy File to data/live-build-config/hooks/live/
-curl -fsSL https://raw.githubusercontent.com/kholmqvist/VyOS-CF/main/89-cloudflare.chroot -o ../data/live-build-config/hooks/live/89-cloudflare.chroot 
+curl -fsSL https://raw.githubusercontent.com/kholmqvist/vyos-cloudflared/main/89-cloudflare.chroot -o ../data/live-build-config/hooks/live/89-cloudflare.chroot 
 
 # 1.1 Add custom minisign key
 if [ "${CUSTOM_MINISIGN}" == "true" ]; then
