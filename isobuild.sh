@@ -10,7 +10,7 @@ BUILD_TYPE="release"
 CUSTOM_MINISIGN=false # Value is either true or false
 MINISIGN_FILE="minisign.pub"
 VERSION="1.3.4"
-PKG="git ansible python3-paramiko"
+PKG="git neovim"
 
 # if .env file is present, override values of the variables above
 if [ -f ".env" ]; then
