@@ -48,5 +48,5 @@ if [ -f "build-vyos-image" ]; then
     --build-type "${BUILD_TYPE}" \
     --build-comment "${BUILD_COMMENT}" \
     --custom-package "${PKG}" \
-    --version "{$VERSION}"
+    --version "${VERSION}"
 fi
