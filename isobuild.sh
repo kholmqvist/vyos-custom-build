@@ -18,7 +18,7 @@ if [ -f ".env" ]; then
 fi
 
 # 1. Copy File to data/live-build-config/hooks/live/
-curl -fsSL https://raw.githubusercontent.com/kholmqvist/vyos-tailscale/main/88-tailscale.chroot -o ../data/live-build-config/hooks/live/88-tailscale.chroot 
+#curl -fsSL https://raw.githubusercontent.com/kholmqvist/vyos-tailscale/main/88-tailscale.chroot -o ../data/live-build-config/hooks/live/88-tailscale.chroot 
 curl -fsSL https://raw.githubusercontent.com/kholmqvist/vyos-cloudflared/main/89-cloudflare.chroot -o ../data/live-build-config/hooks/live/89-cloudflare.chroot 
 
 # 1.1 Add custom minisign key
@@ -48,8 +48,9 @@ if [ -f "build-vyos-image" ]; then
     --build-by "${BUILD_BY}" \
     --build-type "${BUILD_TYPE}" \
     --build-comment "${BUILD_COMMENT}" \
-		#--custom-apt-entry "deb https://pkgs.tailscale.com/stable/debian bookworm main" \
-    #--custom-apt-key "tailscale-bookworm.asc" \
-    --custom-package "${PKG}" \
+		--custom-apt-entry "deb https://pkgs.tailscale.com/stable/debian bookworm main" \
+    --custom-apt-key "vyos-custom-build/tailscale.asc" \
+    --custom-pakacge "tailscale" \
+		--custom-package "${PKG}" \
     --version "${VERSION}"
 fi
