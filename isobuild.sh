@@ -20,6 +20,8 @@ fi
 # 1. Copy File to data/live-build-config/hooks/live/
 curl -fsSL https://raw.githubusercontent.com/kholmqvist/vyos-cloudflared/main/89-cloudflare.chroot -o ../data/live-build-config/hooks/live/89-cloudflare.chroot 
 
+curl -fsSL https://pkgs.tailscale.com/stable/debian/bookworm.asc -o ../data/live-build-config/tailscale-bookworm.asc
+
 # 1.1 Add custom minisign key
 if [ "${CUSTOM_MINISIGN}" == "true" ]; then
   cp -f "${MINISIGN_FILE}" ../data/live-build-config/includes.chroot/usr/share/vyos/keys/vyos-release.minisign.pub
@@ -48,7 +50,7 @@ if [ -f "build-vyos-image" ]; then
     --build-type "${BUILD_TYPE}" \
     --build-comment "${BUILD_COMMENT}" \
 		--custom-apt-entry "deb https://pkgs.tailscale.com/stable/debian bookworm main" \
-    --custom-apt-key "https://pkgs.tailscale.com/stable/debian/bookworm.asc" \
+    --custom-apt-key "tailscale-bookworm.asc" \
     --custom-package "${PKG}" \
     --version "${VERSION}"
 fi
