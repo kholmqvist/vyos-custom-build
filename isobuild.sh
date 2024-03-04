@@ -10,7 +10,7 @@ BUILD_TYPE="release"
 CUSTOM_MINISIGN=false # Value is either true or false
 MINISIGN_FILE="minisign.pub"
 VERSION="1.3.4"
-PKG="git neovim"
+PKG="git neovim tailscale"
 
 # if .env file is present, override values of the variables above
 if [ -f ".env" ]; then
@@ -47,6 +47,8 @@ if [ -f "build-vyos-image" ]; then
     --build-by "${BUILD_BY}" \
     --build-type "${BUILD_TYPE}" \
     --build-comment "${BUILD_COMMENT}" \
+		--custom-apt-entry "deb https://pkgs.tailscale.com/stable/debian bookworm main" \
+    --custom-apt-key "https://pkgs.tailscale.com/stable/debian/bookworm.asc" \
     --custom-package "${PKG}" \
     --version "${VERSION}"
 fi
