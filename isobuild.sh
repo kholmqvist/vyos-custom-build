@@ -48,9 +48,9 @@ if [ -f "build-vyos-image" ]; then
     --build-by "${BUILD_BY}" \
     --build-type "${BUILD_TYPE}" \
     --build-comment "${BUILD_COMMENT}" \
-		--custom-apt-entry "deb https://pkgs.tailscale.com/stable/debian bookworm main" \
+    --custom-apt-entry "deb https://pkgs.tailscale.com/stable/debian bookworm main" \
     --custom-apt-key "vyos-custom-build/tailscale.asc" \
-    --custom-pakacge "tailscale" \
-		--custom-package "${PKG}" \
+    --custom-package "tailscale" \
+    --custom-package "${PKG}" \
     --version "${VERSION}"
 fi
