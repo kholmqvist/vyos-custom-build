@@ -27,7 +27,7 @@ if [ "${CUSTOM_MINISIGN}" == "true" ]; then
 fi
 
 # 1.2 Change diretory to parent
-cd ..
+cd ../
 
 # 2. Configure VyOS 1.3
 if [ -f "configure" ]; then
